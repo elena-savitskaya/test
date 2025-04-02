@@ -6,12 +6,18 @@
   scrollbar-color: #007bff #f1f1f1;
 }
 
+.root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+html,
 body {
   font-family: Arial, sans-serif;
   background-color: #eee;
   min-height: 100vh;
   height: 100%;
-  overflow-y: hidden;
 }
 
 ul {
@@ -30,7 +36,6 @@ ul {
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .header {
@@ -41,10 +46,11 @@ ul {
 }
 
 .footer {
-  position: sticky;
-  left: 0px;
-  bottom: 0px;
+  position: fixed;
+  bottom: 0;
   width: 100%;
+  max-width: 800px;
+  min-width: 500px;
   height: 50px;
   border-top: 1px solid #999;
   background-color: #fff;
@@ -52,13 +58,16 @@ ul {
 
 .content-wrapper {
   position: relative;
-  flex: 1;
+  display: flex;
+  flex-grow: 1;
+  padding-bottom: 50px;
 }
 
 .content {
   padding: 24px;
   width: calc(100% - 300px);
-  height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
+  height: 100%;
   overflow-y: auto;
 }
 
@@ -67,10 +76,6 @@ ul {
   border-left: 1px solid #ccc;
   box-shadow: -10px 0 15px -5px rgba(51, 51, 51, 0.5);
   transition: opacity 250ms ease-out, transform 250ms ease-out;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
 }
 
 .users {
@@ -138,6 +143,7 @@ button:active {
     transform: translateX(100%);
     opacity: 0;
     pointer-events: none;
+    width: 0;
   }
 
   .content {
