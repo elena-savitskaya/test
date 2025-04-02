@@ -1,54 +1,57 @@
-# React + TypeScript + Vite
+# React Vite Test Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Description
 
-Currently, two official plugins are available:
+This project is a web page layout that loads a list of users from an API. It is developed using React and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+### Responsive Layout:
+The main area (500-800px) is centered; if the window width is less than 500px, a horizontal scrollbar appears.
+Background outside the main area is #eee, while inside it is #fff.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Page Structure:
+- Header (fixed at the top, disappears when scrolling up, 50px height, 1px border #999).
+- Right Sidebar (300px width, shadow #333 with 15px radius and 50% transparency). Disappears when window width is reduced to 700px (animated in 250ms).
+- Footer (fixed at the bottom of the window, 50px height, 1px border #999).
+- Content Area (fills the remaining space, the entire page scrolls if content overflows).
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Dynamic Content:
+Fetching user list from https://jsonplaceholder.typicode.com/users.
+"Show Details" button to display user's email and phone number.
+
+### Technologies
+
+- **React** – A JavaScript library for building user interfaces using a component-based approach.
+- **Vite** – A fast build tool and development server optimized for modern front-end frameworks like React.
+- **TypeScript** – A superset of JavaScript that adds static typing for better code quality and maintainability.
+- **CSS** - (Flexbox, media queries, animations) – Styling techniques for responsive layouts and smooth animations.
+- **Fetch API** – A modern interface for making HTTP requests to interact with web servers asynchronously.
+
+## Installation & Setup
+
+Follow the steps below to get the project running on your local machine.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/elena-savitskaya/test.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+cd test
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 2. Install Dependencies
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+Run the following command to install all the required dependencies:
+
+```bash
+npm install
+```
+
+### 3. Run in Development Mode
+
+To start the development server with Hot Module Replacement (HMR), run:
+
+```bash
+npm run dev
 ```
